@@ -3,50 +3,81 @@ include ../mixins
 doctype html
 
 html(lang="en", ng-app="BoilerplateApp")
-	head
-		meta(charset="utf-8")
-		link(rel="shortcut icon", href="/media/img/favicon.ico")
-		title Boilerplate
-		
-		base(href="/")
-		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		
-		| {% if config.DEBUG %}
-		
-		// Including livereload in production will cause a performance hit for users,
-		// so django will not emit the following line if the settings are not set to debug.
-		// buildCfg is provided by gulp and is the same as build.config.js.
-		+script("http://localhost:" + buildCfg.liveReloadPort + "/livereload.js?snipver=1")
-		
-		| {% endif %}
-		
-		+script-cdn("jquery/2.1.0/jquery-2.1.0.min.js")
-		
-		+style-cdn("bootstrap/3.1.1/dist/css/bootstrap.css")
-		+script-cdn("bootstrap/3.1.1/dist/js/bootstrap.js")
-		
-		+style-cdn("toastr/2.0.1/toastr.css")
-		+script-cdn("toastr/2.0.1/toastr.js")
-		
-		+style-cdn("font-awesome/4.0.3/css/font-awesome.css")
-		
-		+script-cdn("angular/1.2.1/angular.js")
-		+script-cdn("angular/1.2.1/angular-resource.js")
-		+script-cdn("angular/1.2.1/angular-route.js")
-		+script-cdn("angular/1.2.1/angular-animate.js")
-		+script-cdn("angular/1.2.1/angular-sanitize.js")
-		
-		+script-cdn("angular-plugins/angular-ui-router/angular-ui-router.js")
-		
-		+script-cdn("angular-plugins/ui-bootstrap/0.10.0/ui-bootstrap-tpls-0.10.0.min.js")
-		+script-cdn("angular-plugins/ui-keypress/keypress.js")
-		
-		+style-cdn("angular-plugins/ui-select/0.2.0/dist/select.css")
-		+script-cdn("angular-plugins/ui-select/0.2.0/dist/select.js")
-		
-		+style("/media/build/app.css")
-		+script("/media/build/app.js")
-		
-	body(ng-cloak)
-		div#wrapper(ui-view)
-		
+    head
+        meta(charset="utf-8")
+        link(rel="shortcut icon", href="/media/img/favicon.ico")
+        title פטור ממכרז
+
+        base(href="/")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+        //| {% if config.DEBUG %}
+        //
+        //// Including livereload in production will cause a performance hit for users,
+        //// so django will not emit the following line if the settings are not set to debug.
+        //// buildCfg is provided by gulp and is the same as build.config.js.
+        ////+script("http://localhost:" + buildCfg.liveReloadPort + "/livereload.js?snipver=1")
+        //
+        //| {% endif %}
+
+        //+script-cdn("jquery/2.1.0/jquery-2.1.0.min.js")
+
+        +style-cdn("twitter-bootstrap/3.3.4/css/bootstrap.min.css")
+        +script-cdn("twitter-bootstrap/3.3.4/js/bootstrap.min.js")
+
+        +style-cdn("font-awesome/4.3.0/css/font-awesome.min.css")
+
+        //+style-cdn("toastr/2.0.1/toastr.css")
+        //+script-cdn("toastr/2.0.1/toastr.js")
+
+
+        //+script-cdn("angular/1.2.1/angular.js")
+        //+script-cdn("angular/1.2.1/angular-resource.js")
+        //+script-cdn("angular/1.2.1/angular-route.js")
+        //+script-cdn("angular/1.2.1/angular-animate.js")
+        //+script-cdn("angular/1.2.1/angular-sanitize.js")
+        //
+        //+script-cdn("angular-plugins/angular-ui-router/angular-ui-router.js")
+        //
+        //+script-cdn("angular-plugins/ui-bootstrap/0.10.0/ui-bootstrap-tpls-0.10.0.min.js")
+        //+script-cdn("angular-plugins/ui-keypress/keypress.js")
+        //
+        //+style-cdn("angular-plugins/ui-select/0.2.0/dist/select.css")
+        //+script-cdn("angular-plugins/ui-select/0.2.0/dist/select.js")
+
+        +style("S:/programming/exemption/exemptions/build/app.css")
+        +script("S:/programming/exemption/exemptions/build/app.js")
+
+    body(ng-cloak)
+        div#navbar
+            div#logo.fill התקשרויות בפטור ממרכז
+            i#search-icon.fa.fa-search.pull-left
+
+        div#info.col-md-9.fill
+        div#alerts.col-md-3.fill
+            div#alerts-header
+                h2 התראות יומיות
+            div#alerts-content.selected
+                div.exemption-alert
+                    div.exemption-flags
+                        i.fa.fa-circle.irregular
+                        | עילות פטור חריגות
+                    h3.exemption-title
+                        | משרד הכלכלה: מרכז שקר כלשהו - שירותי ייעוץ כלכלי ועריכת מחקרים
+                    h4.exemption-supplier
+                        | שם ספק: תבור כלכלה
+                    div.exemption-info
+                        | בלה בלה יאדה יאדה
+            div#alerts-content
+                div.exemption-alert
+                    div.exemption-flags
+                        i.fa.fa-circle.senior-approval
+                        | אישור ע"י גורם בכיר
+                    h3.exemption-title
+                        | משרד הבינוי: הגדלה בגין תכנון
+                    h4.exemption-supplier
+                        | שם ספק: חברת חסן ירושלמי
+                    div.exemption-info
+                        | בלה בלה יאדה יאדה אחר
+        div#wrapper(ui-view)
+
