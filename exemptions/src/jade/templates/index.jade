@@ -11,14 +11,14 @@ html(lang="en", ng-app="BoilerplateApp")
 		base(href="/")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		
-		{% if config.DEBUG %}
+		| {% if config.DEBUG %}
 		
 		// Including livereload in production will cause a performance hit for users,
 		// so django will not emit the following line if the settings are not set to debug.
 		// buildCfg is provided by gulp and is the same as build.config.js.
 		+script("http://localhost:" + buildCfg.liveReloadPort + "/livereload.js?snipver=1")
 		
-		{% endif %}
+		| {% endif %}
 		
 		+script-cdn("jquery/2.1.0/jquery-2.1.0.min.js")
 		
